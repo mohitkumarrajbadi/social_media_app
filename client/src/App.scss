@@ -1,0 +1,297 @@
+$font-style: 'Source Code Pro', monospace;
+$bg-color: #06141D;
+$bg-card: #1B2730;
+$grey-color-text : #5A6774;
+$nav-hover-color : #fff;
+
+@mixin card-design($padding: 20px) {
+    background-color: $bg-card;
+    color: #fff;
+    border-radius: 40px !important;
+    padding: $padding;
+}
+
+* {
+    font-family: $font-style;
+}
+
+
+body {
+    background-color: $bg-color  !important;
+    color: #fff !important;
+}
+
+nav {
+    h2 {
+        font-weight: bold !important;
+    }
+}
+
+.bg-dark {
+    background-color: $bg-color  !important;
+}
+
+
+// Post file SCSS ends
+
+i {
+    font-size: xx-large !important;
+    margin-right: 20px;
+}
+
+ul {
+    li {
+        text-align: center;
+    }
+}
+
+.nav-link {
+    border-radius: 40px;
+    text-align: center !important;
+}
+
+.nav-link:hover {
+    color: $bg-color  !important;
+    background-color: $nav-hover-color;
+    border-radius: 40px;
+}
+
+.app-section {
+    margin-top: 100px !important;
+}
+
+.feed{
+    // post file scss start
+    width: auto;
+    margin-left: 50px !important;
+    margin-top: -46px !important;
+    .post {
+        @include card-design();
+
+        margin-bottom: 20px;
+
+    }
+
+    .tweetBox{
+        @include card-design();
+        margin-bottom: 10px;
+        input{
+            border-radius: 30px;
+            color: #fff;
+            background-color: #06141D;
+            padding: 10px;
+        }
+        Button{
+            background-color: blue !important;
+        }
+    }
+}
+
+//Left Side Bar Code
+.sidebar {
+    position: fixed;
+    width: 25%;
+    left: 5px;
+
+    .card {
+        @include card-design(0px);
+
+        .card-title {
+            font-size: larger;
+
+            .fa-certificate {
+                color: gold;
+                font-size: large !important;
+            }
+        }
+
+        .fa-at {
+            font-size: small !important;
+            font-weight: bold !important;
+        }
+
+        .username {
+            color: $grey-color-text;
+        }
+
+        .profile-image {
+            position: absolute;
+            left: 130px;
+            top: 40px;
+        }
+
+        .background-image-card {
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+        }
+
+        .card-body {
+            margin-top: 50px;
+        }
+
+        .follow-data-section {
+            font-weight: bold !important;
+
+            p {
+                color: $grey-color-text  !important;
+            }
+
+            .follower {
+                border-right: 1px solid $grey-color-text;
+            }
+
+
+            .col-sm-6 {
+                padding: 10px;
+            }
+        }
+
+        .bio-section {
+            padding-bottom: 20px;
+        }
+
+        .profile-button {
+            padding: 20px;
+
+            a {
+                font-style: none;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// Right Side Bar Code
+.fixed-right-sidebar {
+    position: fixed;
+    right: 0px;
+}
+
+.right-side-bar {
+    h4 {
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .fa-gear {
+        font-size: large !important;
+    }
+
+    .card {
+        @include card-design();
+
+        .card-body {
+            padding: 0px !important;
+            padding-top: 10px !important;
+
+            .body-heading {
+                color: $grey-color-text;
+            }
+        }
+    }
+}
+
+// Trending Card
+
+.trending-card {
+    padding-top: 10px;
+    font-size: small !important;
+
+    .fa-ellipsis {
+        font-size: large !important;
+    }
+}
+
+
+// Media Query
+
+@media only screen and (max-width: 600px) {
+    .fixed-sidebar {
+        visibility: hidden;
+    }
+
+    .fixed-right-sidebar {
+        visibility: hidden;
+    }
+
+    .feeds-section {
+        width: max-content !important;
+        padding-left: 20px !important;
+    }
+}
+
+// Social Media Icon Code
+@-webkit-keyframes wiggle {
+    0% {transform: rotateZ(2deg);}
+    50% {transform: rotateZ(-2deg);}
+    100% {transform: rotateZ(2deg);}
+}
+
+@mixin iconTransition{
+
+        transition: all 100ms cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+}
+
+@mixin wiggler{
+   animation-name: wiggle;
+   animation-duration: .4s;
+   animation-iteration-count: infinite;
+   animation-timing-function: ease;
+}
+
+
+
+*, *::before, *::after{
+  box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  -o-box-sizing: border-box;  
+}
+
+
+.wrap {
+    width: 35%;
+    margin: 100px auto;
+    text-align: center;
+  }
+  
+  .social{
+    font-size: 2.5em;
+    height: 70px;
+    overflow:hidden;
+    border-bottom: 1px solid #abc;
+    i{
+        position: relative;
+        top: 30px;
+        margin: 0 10px;
+        @include iconTransition;
+      
+        &:hover{
+           top: 15px;
+          
+          }
+      }
+      
+      .fb{
+        color: #3B5998;
+      }
+      
+      .tw{
+       color: #09AEEC;
+      }
+      
+      .instagram{
+        background: #f09433; 
+      background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+      background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+        }
+      
+      .apple{
+        color: #ccc;
+      }
+  }
+  
+  

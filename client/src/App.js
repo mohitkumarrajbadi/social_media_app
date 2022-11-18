@@ -1,9 +1,11 @@
-import React from "react";
-import Sidebar from "./Sidebar";
+import React, { Component }  from 'react';
 import Feed from "./Feed";
-import Widgets from "./Widgets";
-import "./App.css";
+import "./App.scss";
+
 import { useState, useEffect } from "react";
+import RightSideBar from "./components/RightSideBar";
+import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -22,12 +24,12 @@ function App() {
       let chainId = await ethereum.request({ method: 'eth_chainId'})
       console.log('Connected to chain:' + chainId)
 
-      const rinkebyChainId = '0x4'
+      // const rinkebyChainId = '0x4'
 
-      if (chainId !== rinkebyChainId) {
-        alert('You are not connected to the Rinkeby Testnet!')
-        return
-      }
+      // if (chainId !== rinkebyChainId) {
+      //   alert('You are not connected to the Rinkeby Testnet!')
+      //   return
+      // }
 
       const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
 
@@ -46,11 +48,11 @@ function App() {
 
     const rinkebyChainId = '0x4'
 
-    if (chainId !== rinkebyChainId) {
-      setCorrectNetwork(false)
-    } else {
+    // if (chainId !== rinkebyChainId) {
+    //   setCorrectNetwork(false)
+    // } else {
       setCorrectNetwork(true)
-    }
+    // }
   }
 
   // Similar to componentDidMount and componentDidUpdate:
@@ -70,10 +72,29 @@ function App() {
       Connect Wallet
       </button>
       ) : correctNetwork ? (
-        <div className="app">
+        <div className="app row">
+        
+        <Navbar/>
+
+        <div className='app-section'>
+
+      </div>
+      
+          <div className='row'>
+        
+        <div className='col-sm-3 fixed-sidebar'>
           <Sidebar />
+        </div>
+        
+        <div className='col-sm-6 feeds-section'>
           <Feed />
-          <Widgets />
+        </div>
+
+        <div className='col-sm-3 fixed-right-sidebar'>
+          <RightSideBar />
+        </div>
+      
+      </div>
         </div>
       ) : (
       <div className='flex flex-col justify-center items-center mb-20 font-bold text-2xl gap-y-3'>

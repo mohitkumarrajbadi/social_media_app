@@ -73,20 +73,20 @@ function TweetBox() {
             type="text"
           />
         </div>
-        <input
+        {/* <input
           value={tweetImage}
           onChange={(e) => setTweetImage(e.target.value)}
           className="tweetBox__imageInput"
           placeholder="Optional: Enter image URL"
           type="text"
-        />
+        /> */}
 
         <Button
           onClick={sendTweet}
           type="submit"
           className="tweetBox__tweetButton"
         >
-          Tweet
+          Post
         </Button>
       </form>
     </div>
