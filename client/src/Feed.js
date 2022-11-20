@@ -36,7 +36,7 @@ function Feed({personal}) {
         updatedTweets.push(tweet);
       }
     }
-    return updatedTweets;
+    return updatedTweets.reverse();
   }
 
   const getAllTweets = async() => {
